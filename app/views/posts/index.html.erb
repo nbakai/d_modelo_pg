@@ -15,6 +15,8 @@
         <%end%>
      
       </tbody>
+      <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
+      <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
   </table>
 </div>
 <br>
