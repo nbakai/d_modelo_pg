@@ -4,16 +4,14 @@
 <%= render 'form', post: @post%>
 <table>
     <thead>
+      <tr>
         <th>Título</th>
         <th>Descripción</th>
         <th>Borrar</th>
+      </tr>
     </thead>
     <tbody id="tbody">
-      <% @posts.each do  |post|%>
-        <tr id="post_<%=post.id%>">
-         <%= render post %>
-        </tr>
-      <%end%>
+      <%= render @posts %>
     </tbody>
   <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
   <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
