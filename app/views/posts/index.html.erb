@@ -2,23 +2,23 @@
 
 <h1>Posts</h1>
 <%= render 'form', post: @post%>
-<div id="my_posts">
-  <table>
-      <thead>
-          <th>Título</th>
-          <th>Descripción</th>
-          <th>Borrar</th>
-      </thead>
-      <tbody>
-        <% @posts.each do  |post|%>
-            <%= render post %>
-        <%end%>
-     
-      </tbody>
-      <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
-      <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
+<table>
+    <thead>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Borrar</th>
+    </thead>
+    <tbody id="tbody">
+      <% @posts.each do  |post|%>
+        <tr id="post_<%=post.id%>">
+         <%= render post %>
+        </tr>
+      <%end%>
+    </tbody>
+  <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
+  <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
   </table>
-</div>
+
 <br>
 
 
