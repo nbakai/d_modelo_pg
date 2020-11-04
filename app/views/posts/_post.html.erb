@@ -1,0 +1,5 @@
+<tr id="post_<%=post.id%>">
+    <td><%= post.title%> </td>
+    <td><%= post.desc%> </td>
+    <td><%= link_to 'X', post, method: :delete, remote: true %> </td>
+ </tr>
