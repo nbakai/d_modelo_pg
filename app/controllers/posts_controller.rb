@@ -4,13 +4,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    search = params[:q]
     @post = Post.new
+    @posts = Post.all
+    @posts = Post.where('title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%") if search
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    respond_to do |format|
+      format.js {render layout: false} 
+      end
   end
 
   # GET /posts/new

@@ -1,13 +1,19 @@
 <p id="notice"><%= notice %></p>
-
+<h3>Buscador</h3>
+<%= form_tag(root_path, method: :get, remote: true) do%>
+  <%= text_field_tag :q, nil, placeholder: 'Buscar..'%>
+  <%= submit_tag 'Buscar'%>
+<%end%>
 <h1>Posts</h1>
 <%= render 'form', post: @post%>
-<table>
+<table class="table table-hover" >
     <thead>
-      <tr>
+      <tr class="table-active">
         <th>Título</th>
         <th>Descripción</th>
-        <th>Borrar</th>
+        <th>Show</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody id="tbody">
