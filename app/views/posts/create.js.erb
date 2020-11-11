@@ -1,1 +1,1 @@
-$('#my_posts').append('<%= j render @post%>');
+document.querySelector('#tbody').innerHTML += '<tr id="post_<%=@post.id%>"><%= j render @post %></tr>'

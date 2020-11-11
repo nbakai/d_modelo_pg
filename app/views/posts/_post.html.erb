@@ -1,5 +1,7 @@
-<tr id="post_<%=post.id%>">
-    <td><%= post.title%> </td>
-    <td><%= post.content%> </td>
-    <td><%= link_to 'X', post, method: :delete, remote: true %> </td>
- </tr>
+<tr id="post_<%=post.id%>" class="table-danger">
+    <td ><%= post.title%> </td>
+    <td ><%= post.content%> </td>
+    <td ><%= link_to 'Show', post, remote: true %></td>
+    <td ><%= link_to 'Editar', edit_post_path(post), remote: true %></td>
+    <td ><%= link_to 'Eliminar', post, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+</tr> 

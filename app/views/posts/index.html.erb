@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
-
+<h3>Buscador</h3>
+<%= form_tag(root_path, method: :get, remote: true) do%>
+  <%= text_field_tag :q, nil, placeholder: 'Buscar..'%>
+  <%= submit_tag 'Buscar'%>
+<%end%>
 <h1>Posts</h1>
 <%= render 'form', post: @post%>
-<div id="my_posts">
-  <table>
-      <thead>
-          <th>Título</th>
-          <th>Descripción</th>
-          <th>Borrar</th>
-      </thead>
-      <tbody>
-        <% @posts.each do  |post|%>
-            <%= render post %>
-        <%end%>
-     
-      </tbody>
-      <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
-      <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
+<table class="table table-hover" >
+    <thead>
+      <tr class="table-active">
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Show</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      <%= render @posts %>
+    </tbody>
+  <% @rand = {post: {title: 'Post random', content: 'Este es un post random'}}%>
+  <%= link_to 'Crear Post Random', @rand, method: :post, remote: true%>
   </table>
-</div>
+
 <br>
 
 
